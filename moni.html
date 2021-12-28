@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>l</title>
+        <style>
+            *{border: 0px; margin: 0px; padding: 0px;
+            font-family: 'Segoe UI',SegoeUI,'Microsoft YaHei',微软雅黑,"Helvetica Neue",Helvetica,Arial,sans-serif;}
+            body{color: #000; height: 1000px; }
+            .head{padding: 0px 15px 0px 15px; position:sticky;top:0;width: 100%;height: 60px; border-bottom:solid 1px rgb(184, 184, 184);}
+            a{text-decoration: none; display: block;}
+            ul{list-style-type: none;overflow: hidden;}
+            .log{float: left; color: rgb(121, 170, 133); font-size: 15px;height:100%;width: 250px; margin-left: 3%;}
+            .log img{width: 50px; height: 50px;}
+            .log a{color: rgb(121, 170, 133);transition: transform 1s, padding-top 1s ease-in;}
+            .log a:hover{color: rgb(90, 90, 90);}
+            .title_list{float: left; height: 38px; width:90px; font-size: 20px; padding: 12px; color: rgb(133, 133, 133); transition: font-size 0.3s ease-out; text-align: center;}
+            .title_list:link .title_list:visited{color: rgb(133, 133, 133);background-color: ;}
+            .title_list:hover{color: rgb(0, 0, 0);height: 36px; border-bottom:solid 2px rgb(0, 0, 0); font-size: 18px;}
+            .search_text{float: right; width: 300px; margin-right: 3%; margin-top: 10px;height: 40px;}
+            .search_text input{border-radius: 30px; border: none;height: 40px;width: 100%;box-shadow: 0px 0px 10px rgb(184, 184, 184);padding: 2px 15px;}
+            .search_text button{border: none; height: 40px; width: 40px;position:relative; border-radius: 40px; text-align: center; z-index: 1;float: right; margin: -40px 0 0 0;cursor: pointer;}
+            .search_text input:focus{border: none;outline:none;}
+            
+            .body1{font-size: 35px; padding: 20px;margin-top: 30px;display: none;color: rgb(136, 136, 136); width: 100%;
+                 z-index: 1;box-shadow: 0px 0px 10px;width: 90%;margin-left: 5%; height: 600px;}
+            .close_button{font-size: 40px;width: 50px; height: 50px; float: right;display: block; text-align: center ;}
+            
+            .close_button button{height: 100%; width: 100%; font-size: 40px;}
+            .close_button:hover{background-color: lightslategrey;}
+            .body1 ul li{padding: 10px; height:50px; width: 80px;}
+            .body1 ul li:hover{height:48px; color: #000; border-bottom: solid 2px rgb(0, 0, 0);}
+            .body1 hr{width:8px; transition: width 1s; border: solid 1px;}
+            
+        </style>
+        <script>
+            function SearchBox()
+            {
+                document.getElementById("generic").style.background="rgb(210, 210, 210)";
+            }
+            function displayview1()
+            {
+                document.getElementById("body_1").style.display="block";
+                document.getElementById("body_2").style.display="none";
+                document.getElementById("body_3").style.display="none";
+                document.getElementById("body_4").style.display="none";
+            }
+            function displayview2()
+            {
+                document.getElementById("body_1").style.display="none";
+                document.getElementById("body_2").style.display="block";
+                document.getElementById(body_3).style.display="none";
+                document.getElementById(body_4).style.display="none";
+            }
+            function displayview3()
+            {
+                document.getElementById(body_1).style.display="none";
+                document.getElementById(body_2).style.display="none";
+                document.getElementById(body_3).style.display="block";
+                document.getElementById(body_4).style.display="none";
+            }
+            function displayview4()
+            {
+                document.getElementById(body_1).style.display="none";
+                document.getElementById(body_2).style.display="none";
+                document.getElementById(body_3).style.display="none";
+                document.getElementById(body_4).style.display="block";
+            }
+            function close_page()
+            {
+                document.getElementById("body_1").style.display="none"
+                document.getElementsByClassName("body1")[1].style.display="none"
+            }
+           function bodyon()
+           {
+               document.getElementById("body_hr").style.width="40px";
+           }
+        </script>
+    </head>
+    <body id="generic">
+        <div id="head" class="head">
+            <div class="log" id="log" onclick="log()">
+                <a href="#"><img src="../学习/icons-1.7.2/icons/boxes.svg"></a>
+            </div>
+            <div>
+                <a class="title_list" href="#" onclick="displayview1()" id="displayview1">个人产品</a>
+                <a class="title_list" href="#" onclick="displayview2()" id="displayview2">商用产品</a>
+                <a class="title_list" href="#" onclick="displayview3()" id="displayview3">服务支持</a>
+                <a class="title_list" href="#" onclick="displayview4()" id="displayview4">合作伙伴</a>
+            </div>
+            <div class="search_text">
+                <form>
+                    <input type="text" class="search_box" placeholder="搜索" id="search_box" onfocus="SearchBox()">
+                    <button><img src="../学习/icons-1.7.2/icons/search.svg"></button>
+                </form>
+            </div>
+        </div>
+            
+            <div class="body1" id = 'body_1'>
+                <div class="close_button" id="close_button" onclick="close_page()"><botton><span>X</span></botton></div>
+                <div>
+                <ul>
+                    <li onmouseover="bodyon()" onmousemove="bodynormal()"><a>手机</a></li>
+                    <hr id="body_hr">
+                    <li onmouseover="bodyon()" onmousemove="bodynormal()"><a>平板</a></li>
+                    <hr id="body_hr">
+                    <li onmouseover="bodyon()" onmousemove="bodynormal()"><a>耳机</a></li>
+                    <hr id="body_hr">
+                    <li onmouseover="bodyon()" onmousemove="bodynormal()"><a>配件</a></li>
+                    <hr id="body_hr">
+                </ul>
+                </div>
+            </div>
+            
+            <div class="body1" id = 'body_2'>
+                <div class="close_button" id="close_button" onclick="close_page()"><button><span>X</span></button></div>
+                <div>
+                <ul>
+                    <li onmouseover="bodyon()" onmousemove="bodynormal()"><a>xxx</a></li>
+                    <hr id="body_hr">
+                    <li onmouseover="bodyon()" onmousemove="bodynormal()"><a>xxx</a></li>
+                    <hr id="body_hr">
+                    <li onmouseover="bodyon()" onmousemove="bodynormal()"><a>xxx</a></li>
+                    <hr id="body_hr">
+                    <li onmouseover="bodyon()" onmousemove="bodynormal()"><a>xxx</a></li>
+                    <hr id="body_hr">
+                </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
